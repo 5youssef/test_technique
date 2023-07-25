@@ -1,0 +1,25 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+  frontend:
+    build:
+      context: ./v-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+  dev-db:
+    image: postgres:15
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: 123456
+        POSTGRES_DB: interview-db
+    ports:
+        - '32768:5432'
+
+
+
+
+  
